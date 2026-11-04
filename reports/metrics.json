@@ -1,0 +1,180 @@
+{
+  "data_checks": {
+    "rows": 12330,
+    "missing_values": 0,
+    "duplicate_rows": 125,
+    "purchase_rate": 0.15474452554744525,
+    "rows_after_cleaning": 12205,
+    "purchase_rate_after_cleaning": 0.15632937320770177
+  },
+  "features": [
+    "Administrative",
+    "Administrative_Duration",
+    "Informational",
+    "Informational_Duration",
+    "ProductRelated",
+    "ProductRelated_Duration",
+    "BounceRates",
+    "ExitRates",
+    "PageValues",
+    "SpecialDay",
+    "Month",
+    "OperatingSystems",
+    "Browser",
+    "Region",
+    "TrafficType",
+    "VisitorType",
+    "Weekend"
+  ],
+  "target": "Revenue",
+  "feature_ranges": {
+    "Administrative": [
+      0.0,
+      27.0
+    ],
+    "Administrative_Duration": [
+      0.0,
+      3398.75
+    ],
+    "Informational": [
+      0.0,
+      24.0
+    ],
+    "Informational_Duration": [
+      0.0,
+      2549.375
+    ],
+    "ProductRelated": [
+      0.0,
+      705.0
+    ],
+    "ProductRelated_Duration": [
+      0.0,
+      63973.52223
+    ],
+    "BounceRates": [
+      0.0,
+      0.2
+    ],
+    "ExitRates": [
+      0.0,
+      0.2
+    ],
+    "PageValues": [
+      0.0,
+      361.7637419
+    ],
+    "SpecialDay": [
+      0.0,
+      1.0
+    ]
+  },
+  "cv_comparison": {
+    "Logistic Regression": {
+      "cv_accuracy_mean": 0.8471948893253758,
+      "cv_precision_mean": 0.5079567396842862,
+      "cv_recall_mean": 0.7523111539697848,
+      "cv_f1_mean": 0.6063031446201881,
+      "cv_roc_auc_mean": 0.8990604084443132,
+      "cv_f1_std": 0.024438765564208393,
+      "train_f1": 0.6153441933788755
+    },
+    "KNN": {
+      "cv_accuracy_mean": 0.8707503903200624,
+      "cv_precision_mean": 0.6500868723467839,
+      "cv_recall_mean": 0.3761191471123969,
+      "cv_f1_mean": 0.4758969164070382,
+      "cv_roc_auc_mean": 0.7785222810872426,
+      "cv_f1_std": 0.0302125421397403,
+      "train_f1": 0.6013071895424836
+    },
+    "Decision Tree": {
+      "cv_accuracy_mean": 0.8581533873905635,
+      "cv_precision_mean": 0.5449994371374871,
+      "cv_recall_mean": 0.5491738990678238,
+      "cv_f1_mean": 0.5467237450586422,
+      "cv_roc_auc_mean": 0.7322834969487468,
+      "cv_f1_std": 0.03980035598780456,
+      "train_f1": 1.0
+    },
+    "Random Forest": {
+      "cv_accuracy_mean": 0.8933843372533218,
+      "cv_precision_mean": 0.6435198834779079,
+      "cv_recall_mean": 0.7155769848923177,
+      "cv_f1_mean": 0.6770604374084385,
+      "cv_roc_auc_mean": 0.9253541101784915,
+      "cv_f1_std": 0.01669396687374533,
+      "train_f1": 0.9957585644371941
+    }
+  },
+  "untuned_test_metrics": {
+    "Logistic Regression": {
+      "accuracy": 0.8476034412126178,
+      "precision": 0.5083612040133779,
+      "recall": 0.7958115183246073,
+      "f1": 0.6204081632653061,
+      "roc_auc": 0.9096788712052055
+    },
+    "KNN": {
+      "accuracy": 0.8742318721835314,
+      "precision": 0.6681614349775785,
+      "recall": 0.3900523560209424,
+      "f1": 0.4925619834710744,
+      "roc_auc": 0.8001615942268524
+    },
+    "Decision Tree": {
+      "accuracy": 0.8517001229004506,
+      "precision": 0.5273224043715847,
+      "recall": 0.5052356020942408,
+      "f1": 0.516042780748663,
+      "roc_auc": 0.7106071162486747
+    },
+    "Random Forest": {
+      "accuracy": 0.8926669397787792,
+      "precision": 0.6401869158878505,
+      "recall": 0.7172774869109948,
+      "f1": 0.6765432098765433,
+      "roc_auc": 0.92402528549161
+    }
+  },
+  "majority_class_accuracy": 0.8435067595247849,
+  "chosen_model": "Random Forest",
+  "grid_search": {
+    "param_grid": {
+      "model__n_estimators": [
+        "200",
+        "400"
+      ],
+      "model__max_depth": [
+        "None",
+        "8",
+        "16"
+      ],
+      "model__min_samples_leaf": [
+        "1",
+        "3",
+        "5"
+      ]
+    },
+    "best_params": {
+      "model__max_depth": "None",
+      "model__min_samples_leaf": "1",
+      "model__n_estimators": "400"
+    },
+    "best_cv_f1": 0.6830420802230025,
+    "n_fits": 90
+  },
+  "final_test_metrics": {
+    "accuracy": 0.8959442851290454,
+    "precision": 0.6516587677725119,
+    "recall": 0.7198952879581152,
+    "f1": 0.6840796019900498,
+    "roc_auc": 0.9267575120337479
+  },
+  "confusion_matrix": {
+    "TN": 1912,
+    "FP": 147,
+    "FN": 107,
+    "TP": 275
+  }
+}
